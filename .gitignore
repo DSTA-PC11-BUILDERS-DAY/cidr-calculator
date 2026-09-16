@@ -18,6 +18,9 @@ coverage/
 .nyc_output/
 *.tsbuildinfo
 
+# Vercel
+.vercel/
+
 # Environment
 .env
 .env.local
@@ -36,3 +39,6 @@ desktop.ini
 tmp/
 temp/
 .cache/
+
+.vercel
+.env*

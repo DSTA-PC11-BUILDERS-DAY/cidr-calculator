@@ -46,7 +46,10 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: err.message });
 });
 
-if (process.env.NODE_ENV !== "test") {
+const isMainModule =
+  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isMainModule && process.env.NODE_ENV !== "test") {
   app.listen(PORT, () => {
     console.log(`CIDR calculator running at http://localhost:${PORT}`);
   });
