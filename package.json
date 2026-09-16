@@ -1,0 +1,22 @@
+{
+  "name": "cidr-calculator",
+  "version": "1.0.0",
+  "description": "CIDR/subnet calculator with VLSM breakdown",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "cidr",
+    "subnet",
+    "vlsm",
+    "calculator"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

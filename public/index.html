@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIDR / Subnet Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>CIDR / Subnet Calculator</h1>
+    <p class="sub">Calculate network &amp; broadcast addresses, usable host ranges, and plan subnets with VLSM.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Subnet Details</h2>
+      <form id="cidr-form" class="row">
+        <label>
+          IP address
+          <input id="ip" type="text" value="192.168.1.10" placeholder="192.168.1.10" autocomplete="off" spellcheck="false" />
+        </label>
+        <label>
+          Prefix
+          <input id="prefix" type="number" min="0" max="32" value="24" />
+        </label>
+        <button type="submit">Calculate</button>
+      </form>
+      <div id="cidr-error" class="error" hidden></div>
+      <dl id="cidr-results" class="results"></dl>
+    </section>
+
+    <section class="card">
+      <h2>VLSM Breakdown</h2>
+      <form id="vlsm-form">
+        <label class="full">
+          Base network (CIDR)
+          <input id="base-cidr" type="text" value="192.168.1.0/24" placeholder="192.168.1.0/24" autocomplete="off" spellcheck="false" />
+        </label>
+
+        <div class="req-head">
+          <span>Subnet name</span>
+          <span>Required hosts</span>
+          <span></span>
+        </div>
+        <div id="requirements"></div>
+
+        <div class="actions">
+          <button type="button" id="add-req" class="ghost">+ Add subnet</button>
+          <button type="submit">Generate VLSM plan</button>
+        </div>
+      </form>
+      <div id="vlsm-error" class="error" hidden></div>
+      <div id="vlsm-summary" class="summary" hidden></div>
+      <div class="table-wrap">
+        <table id="vlsm-table" hidden>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>CIDR</th>
+              <th>Netmask</th>
+              <th>Usable range</th>
+              <th>Usable hosts</th>
+              <th>Requested</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>IPv4 only · runs locally · no data leaves your machine</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
